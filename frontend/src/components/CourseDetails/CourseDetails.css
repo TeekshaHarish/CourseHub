@@ -1,0 +1,19 @@
+.details{
+    width: 85% !important;
+}
+.course-desc{
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+}
+.skill{
+    background-color: rgb(127, 185, 255);
+    border-radius: 10%;
+    border: 2px solid black;
+    box-shadow: 5px 5px;
+
+}
+@media screen and (max-width: 500px) {
+    .prereq{
+        flex-direction: column;
+    }
+  }
