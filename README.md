@@ -41,9 +41,11 @@ Server made using expressJs and frontend using Reactjs. Redux is used to store t
 
 1. Clone the repository: `git clone https://github.com/your-username/your-repo.git`
 2. Navigate to the project directory: `cd CourseHub`
-3. Install dependencies: `npm install`
-4. Install frontend dependencies: `cd frontend` -> `npm i` -> `cd ..`
-5. Make an .env file ,add a key for MONGO_URL with value of your connection url for mongo database 
+3. Install backend dependencies: `npm install`
+4. Install frontend dependencies: `cd frontend` ->
+                                  `npm i` ->
+                                  `cd ..`
+5. Make an .env file ,add a key for MONGO_URL with value of your connection url for mongo database in it, take .env.example file as reference.
 6. Run the development server and frontend concurrently: `npm run dev`
 
 ### Tech Stack
