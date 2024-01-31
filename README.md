@@ -37,6 +37,15 @@ Utilize a state management library such as Redux or MobX to manage the applicati
 ### Implementation
 Server made using expressJs and frontend using Reactjs. Redux is used to store the universla state for the current user. Also the details of the courses are fteched from an api and stored in a Mongo Database.
 
+## How to Run
+
+1. Clone the repository: `git clone https://github.com/your-username/your-repo.git`
+2. Navigate to the project directory: `cd CourseHub`
+3. Install dependencies: `npm install`
+4. Install frontend dependencies: `cd frontend` -> `npm i` -> `cd ..`
+5. Make an .env file ,add a key for MONGO_URL with value of your connection url for mongo database 
+6. Run the development server and frontend concurrently: `npm run dev`
+
 ### Tech Stack
 - Nodejs
 - Expressjs
