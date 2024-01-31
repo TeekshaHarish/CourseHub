@@ -15,15 +15,13 @@ const studentSlice=createSlice({
             state.coursesEnrolled=[...state.coursesEnrolled, action.payload];
         },
         markAsCompleted:(state,action)=>{
-
             state.coursesEnrolled=state.coursesEnrolled.map((course)=>{
-                if(course.id===action.payload.courseId){
+                if(course.courseId===action.payload.courseId){
                     return {...course,completed:'Yes',progress:100}
                 }else{
                     return course;
                 }
-            })
-            console.log(state.coursesEnrolled);
+            });
         }
     }
 })

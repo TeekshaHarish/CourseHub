@@ -27,7 +27,7 @@ app.use(express.json());
 //     console.log(student);
 // })
 app.get("/course/getAllCourses",async(req,res)=>{
-    console.log("REQUEST RECIEVED");
+    // console.log("REQUEST RECIEVED");
     const courseData=await courseModel.find({});
     res.status(200).send({
         data:courseData

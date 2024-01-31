@@ -6,7 +6,6 @@ import "./CourseListing.css";
 
 const CourseListing = () => {
   const student = useSelector((state) => state.student);
-  console.log(student);
   const [courses, setCourses] = useState();
   const getAllCourses = async () => {
     try {
@@ -37,9 +36,7 @@ const CourseListing = () => {
 
   const filterHandler = (event) => {
     event.preventDefault();
-    // console.log(regexQuery);
     filterCourses({ name, instructor });
-    console.log(name, instructor);
   };
   return (
     <>

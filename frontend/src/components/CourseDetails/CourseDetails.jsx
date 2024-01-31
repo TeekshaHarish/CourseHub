@@ -13,7 +13,6 @@ const CourseDetails = () => {
   const navigate = useNavigate();
   const [course, setCourse] = useState();
   const student = useSelector((state) => state.student);
-  // console.log("STU", student);
   const getCourseDetails = async () => {
     try {
       const res = await axios.post("/course/getCourseDetails", {
@@ -30,8 +29,6 @@ const CourseDetails = () => {
 
   const AddStudent = async (courseId) => {
     try {
-      // console.log("called");
-      // console.log(courseId, student);
       const res = await axios.post(
         "/course/addStudent",
         {
@@ -61,7 +58,6 @@ const CourseDetails = () => {
     });
   };
   const HandleApply = () => {
-    // console.log("CLICKED");
     AddStudent(course._id);
     dispatch(
       applyCourse({
