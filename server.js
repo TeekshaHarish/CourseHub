@@ -4,6 +4,7 @@ const connectDB=require("./dbconfig");
 const dotenv=require("dotenv");
 const studentModel = require("./models/studentModel");
 const courseModel=require("./models/courseModel");
+const courses=require("./coursesSeed");
 dotenv.config();
 const cors=require("cors");
 
@@ -12,69 +13,13 @@ connectDB();
 
 app.use(cors());
 app.use(express.json());
-const courses = [
-    {
-    id: 1, // Unique identifier for the course
-    name: 'Introduction to React Native',
-    instructor: 'John Doe', // Name of the course instructor
-    description: 'Learn the basics of React Native development and build your first mobile app.',
-    enrollmentStatus: 'Open', // Can be 'Open', 'Closed', or 'In Progress
-    thumbnail: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTld-XreuEVL3w8SfTXgoC3Iyz9QF2KI2WSoA&usqp=CAU', //Link to the course thumbnail
-duration: '8 weeks', // Duration of the course
-schedule: 'Tuesdays and Thursdays, 6:00 PM - 8:00 PM',
-location: 'Online',
-prerequisites: ['Basic JavaScript knowledge', 'Familiarity with React'],
-syllabus: [
-{
-week: 1,
-topic: 'Introduction to React Native',
-content: 'Overview of React Native, setting up your development environment.'
-},
-{
-week: 2,
-topic: 'Building Your First App',
-content: 'Creating a simple mobile app using React Native components.'
-},
-// Additional weeks and topics...
-],
-students: [
-],
-},
-    {
-    id: 2, // Unique identifier for the course
-    name: 'Introduction to NodeJs',
-    instructor: 'John Doe', // Name of the course instructor
-    description: 'Learn the basics of React Native development and build your first mobile app.',
-    enrollmentStatus: 'Open', // Can be 'Open', 'Closed', or 'In Progress
-    thumbnail: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTld-XreuEVL3w8SfTXgoC3Iyz9QF2KI2WSoA&usqp=CAU', //Link to the course thumbnail
-duration: '8 weeks', // Duration of the course
-schedule: 'Tuesdays and Thursdays, 6:00 PM - 8:00 PM',
-location: 'Online',
-prerequisites: ['Basic JavaScript knowledge', 'Familiarity with React'],
-syllabus: [
-{
-week: 1,
-topic: 'Introduction to React Native',
-content: 'Overview of React Native, setting up your development environment.'
-},
-{
-week: 2,
-topic: 'Building Your First App',
-content: 'Creating a simple mobile app using React Native components.'
-},
-// Additional weeks and topics...
-],
-students: [
-],
-}
-];
 
-const addCourses=async()=>{
-    courses.map(async(course)=>{
-        const newCourse=new courseModel(course);
-        await newCourse.save();
-    })
-}
+// const addCourses=async()=>{
+//     courses.map(async(course)=>{
+//         const newCourse=new courseModel(course);
+//         await newCourse.save();
+//     })
+// }
 // addCourses();
 // app.use(async()=>{
 //     const student=new studentModel({name:'Ajay',email:"ajay@gmail.com",coursesEnrolled:[]});
@@ -89,7 +34,7 @@ app.get("/course/getAllCourses",async(req,res)=>{
     })
 })
 app.post("/course/filterCourses",async(req,res)=>{
-    console.log("REQUEST RECIEVED");
+    // console.log("REQUEST RECIEVED");
     const {filter}=req.body;
     console.log(req.body.filter);
     // const pattern = `^${filter.name}`; // Replace 'yourPattern' with your desired pattern

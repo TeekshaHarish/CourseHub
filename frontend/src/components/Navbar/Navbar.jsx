@@ -7,7 +7,7 @@ const Navbar = () => {
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
       <div className="container-fluid">
-        <Link className="navbar-brand mr-5" to="/">
+        <Link className="navbar-brand ml-5" to="/">
           CourseHub
         </Link>
         {/* <a className="navbar-brand mr-5" href="#">
