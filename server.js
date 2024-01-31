@@ -34,9 +34,8 @@ app.get("/course/getAllCourses",async(req,res)=>{
     })
 })
 app.post("/course/filterCourses",async(req,res)=>{
-    // console.log("REQUEST RECIEVED");
     const {filter}=req.body;
-    console.log(req.body.filter);
+    // console.log(req.body.filter);
     // const pattern = `^${filter.name}`; // Replace 'yourPattern' with your desired pattern
     let regexQuery={};
     if(filter.name){
@@ -45,7 +44,7 @@ app.post("/course/filterCourses",async(req,res)=>{
     if(filter.instructor){
         regexQuery={...regexQuery,instructor: { $regex: new RegExp(`^${filter.instructor}`,'i') }};
     }
-    console.log(regexQuery);
+    // console.log(regexQuery);
     const courseData=await courseModel.find(regexQuery);
     res.status(200).send({
         data:courseData
@@ -53,21 +52,15 @@ app.post("/course/filterCourses",async(req,res)=>{
 })
 app.post("/course/getCourseDetails",async(req,res)=>{
     const course=await courseModel.findById(req.body.courseId);
-    // console.log(course);
     res.status(200).send({
         data:course
     })
 })
 
 app.post("/course/addStudent",async(req,res)=>{
-    // const {id,name,email}=req.body;
-    // console.log("BODY",req.body);
-    // console.log(req.body.courseId);
     const course=await courseModel.findById(req.body.courseId);
-    // console.log(course);
     course.students.push(req.body.studentId);
     await course.save();
-    // console.log(course);
     res.status(200).send({
         data:course
     })
