@@ -39,10 +39,10 @@ app.post("/course/filterCourses",async(req,res)=>{
     // const pattern = `^${filter.name}`; // Replace 'yourPattern' with your desired pattern
     let regexQuery={};
     if(filter.name){
-        regexQuery={...regexQuery,name: { $regex: new RegExp(`^${filter.name}`,'i') }};
+        regexQuery={...regexQuery,name: { $regex: new RegExp(`${filter.name}`,'i') }};
     }
     if(filter.instructor){
-        regexQuery={...regexQuery,instructor: { $regex: new RegExp(`^${filter.instructor}`,'i') }};
+        regexQuery={...regexQuery,instructor: { $regex: new RegExp(`${filter.instructor}`,'i') }};
     }
     // console.log(regexQuery);
     const courseData=await courseModel.find(regexQuery);
